@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.svg">
+    <title>Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+ </head>
+<script> function AddToFav(imageSrc, button) { let favourites = JSON.parse(localStorage.getItem("favourites")) || []; if (!favourites.includes(imageSrc)) { favourites.push(imageSrc); localStorage.setItem( "favourites", JSON.stringify(favourites) ); button.innerText = "❤︎ Added"; } } </script>
+<body>
+     <div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+
+            const toggleBtn = document.querySelector('.toggle_btn');
+            const dropDownMenu = document.querySelector('.dropdown_menu');
+            const toggleBtnIcon = document.querySelector('.toggle_btn i');
+
+            toggleBtn.addEventListener("click", () => {
+                dropDownMenu.classList.toggle("open");
+
+                const isOpen = dropDownMenu.classList.contains("open");
+
+                toggleBtnIcon.className = isOpen
+                    ? "fa-solid fa-xmark"
+                    : "fa-solid fa-bars";
+            });
+        });
+    </script>
+    <div class="bg-effect"></div>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img 
+            src="images/cepiceNY.png"
+            data-hover="images/cepicenyback.png">
+            <button class="fav-btn" onclick="AddToFav('images/cepiceNY.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <img 
+            src="images/hat3.png"
+            data-hover="images/hat3back.png" 
+            alt="hat">
+             <button class="fav-btn" onclick="AddToFav('images/hat3.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://princessjewellery.cz/en/collections/chains?srsltid=AfmBOopGIgU4tFvShkanZnqM9ohwb-zbTk_P5VqPJpqj_jUklzVArWDk">
+            <img 
+            src="images/chain1.png"
+            data-hover="" 
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/chain1.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://www.bread-ice.cz/products/tennis-chain?variant=49582784905545">
+            <img 
+            src="images/chain2.png" 
+            data-hover="" 
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/chain2.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://eu.stussy.com/collections/tees/products/1905179-long-haul-tee-pigment-dyed-faded-black">
+            <img 
+            src="images/stussy tee.png"
+            data-hover="images/stussyteeback.png"  
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/stussy tee.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://eu.supreme.com/products/g8u1i6l-cc0gnm1y?all=1">
+            <img 
+            src="images/supremetee.png"
+            data-hover="images/supremeteeback.png"  
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/supremetee.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://supersklep.cz/i304403-kalhoty-polar-skate-big-boy-jeans-dark-blue">
+            <img 
+            src="images/pants big boy.png"
+            data-hover="images/polarboysback.png"  
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/pants big boy.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://www.bershka.com/cz/džíny-super-baggy-s-výšivkou-c0p217315138.html?colorId=426&stylismId=21">
+                <img src="images/pants2 breshka.png" 
+                data-hover="images/bershkaback.png" alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/pants2 breshka.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://supersklep.cz/i370613-kraasy-carhartt-wip-brandon-black-stone-washed">
+            <img 
+            src="images/carharttjortsfront.png"
+            data-hover="images/carhartt jorts1.png" 
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/carhartt jorts1.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+        <div class="gallery-item">
+            <a href="https://supersklep.cz/i288269-kraasy-polar-skate-big-boy-light-blue">
+            <img 
+            src="images/polar jorts2.png"
+            data-hover="images/polarboyjortsback.png"  
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/polar jorts2.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+         <div class="gallery-item">
+            <a href="https://www.footshop.cz/cs/panske-tenisky-a-boty/466132-adidas-superstar-ii-core-black-core-black-better-scarlet.html?_gl=1*dqiswn*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw5s_QBhAdEiwADD_gBkC323T-Gb5SyhIaCmIQtI7PLXXUwD3R-eDqTxbSWgbrDUTtk7fPKRoCLUQQAvD_BwE">
+            <img 
+            src="images/adidas boty.png"
+            data-hover="images/adidasbotyback.png"  
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/adidas boty.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+         <div class="gallery-item">
+            <a href="https://www.footshop.cz/cs/panske-tenisky-a-boty/261022-asics-gel-nyc-cream-oyster-grey.html?_gl=1*1hkwnvl*_up*MQ..&gclid=CjwKCAjw5s_QBhAdEiwADD_gBkC323T-Gb5SyhIaCmIQtI7PLXXUwD3R-eDqTxbSWgbrDUTtk7fPKRoCLUQQAvD_BwE">
+            <img 
+            src="images/asics boty.png" 
+            data-hover="images/asicsbotyback.png" 
+            alt="">
+            </a>
+             <button class="fav-btn" onclick="AddToFav('images/asics boty.png', this)">
+                ❤︎⁠ Add to favourite 
+            </button>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll(".gallery-item img").forEach(img=>{
+
+        const original = img.src;
+        const hover = img.dataset.hover;
+
+        if(!hover) return;
+
+        img.addEventListener("mouseenter",()=>{
+
+            img.src = hover;
+        });
+
+        img.addEventListener("mouseleave", ()=>{
+
+            img.src = original;
+        });
+
+        });
+    </script>
+    <script>
+        function openModal(type) {
+            document.getElementById("modal").style.display = "block";
+
+            if (type === "login") {
+                document.getElementById("loginForm").style.display = "block";
+                document.getElementById("registerForm").style.display = "none";
+            } else {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("registerForm").style.display = "block";
+            }
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+        function login() {
+            alert("Signed in");
+        }
+        function register() {
+            alert("Register");
+        }
+    </script>
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="text" id="loginEmail" placeholder="Email">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button onclick="login()" class="main-btn">Sign in</button>
+            </div>
+
+            <div id="registerForm">
+                <h2>Register</h2>
+                <input type="text" placeholder="Name">
+                <input type="email" id="registerEmail" placeholder="Email">
+                <input type="password" id="registerPassword" placeholder="Password">
+                <button onclick="register()" class="main-btn">Create Account</button>
+            </div>
+
+        </div>
+</body>
+</html>

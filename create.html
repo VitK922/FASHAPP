@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.svg">
+    <title>Create</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+</head>
+<script>
+function AddFitToFav(button){
+let myfits =
+JSON.parse(
+localStorage.getItem(
+"myfits"
+)
+)
+|| [];
+const outfit = {
+addons:
+categories.addons
+.images[
+categories.addons.index
+],
+tops:
+categories.tops
+.images[
+categories.tops.index
+],
+bottoms:
+categories.bottoms
+.images[
+categories.bottoms.index
+],
+shoes:
+categories.shoes
+.images[
+categories.shoes.index
+]
+};
+myfits.push(
+outfit
+);
+localStorage.setItem(
+"myfits",
+JSON.stringify(
+myfits
+)
+);
+button.innerText =
+"❤ Saved";
+}
+
+</script>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+
+            const toggleBtn = document.querySelector('.toggle_btn');
+            const dropDownMenu = document.querySelector('.dropdown_menu');
+            const toggleBtnIcon = document.querySelector('.toggle_btn i');
+
+            toggleBtn.addEventListener("click", () => {
+                dropDownMenu.classList.toggle("open");
+
+                const isOpen = dropDownMenu.classList.contains("open");
+
+                toggleBtnIcon.className = isOpen
+                    ? "fa-solid fa-xmark"
+                    : "fa-solid fa-bars";
+            });
+        });
+    </script>
+      <div class="bg-effect"></div>
+      <h1 class="favnadpis">Create</h1>
+    <div class="main-container">
+        <button class="random-button" id="random-btn">randomize</button>
+        <div class="addons-container">
+            <img id="addons" class="addons-image" src="" alt="accesories">
+            <div class="carousel-buttons">
+               <button id="0prevBtn"><i class="fa-solid fa-arrow-left" style="color: rgb(255, 255, 255);"></i></button>
+                <button id="0nextBtn"><i class="fa-solid fa-arrow-right" style="color: rgb(255, 255, 255);"></i></button>
+            </div>
+        </div>
+        <div class="tops-container">
+            <img id="tops" class="tops-image" src="" alt="">
+            <div class="carousel-buttons">
+                <button id="1prevBtn"><i class="fa-solid fa-arrow-left" style="color: rgb(255, 255, 255);"></i></button>
+                <button id="1nextBtn"><i class="fa-solid fa-arrow-right" style="color: rgb(255, 255, 255);"></i></button>
+            </div>
+        </div>
+        <div class="bottoms-container">
+            <img id="bottoms" class="bottoms-image" src="" alt="">
+            <div class="carousel-buttons">
+                <button id="2prevBtn"><i class="fa-solid fa-arrow-left" style="color: rgb(255, 255, 255);"></i></button>
+                <button id="2nextBtn"><i class="fa-solid fa-arrow-right" style="color: rgb(255, 255, 255);"></i></button>
+            </div>
+        </div>
+        <div class="shoes-container">
+            <img id="shoes" class="shoes-image" src="" alt="">
+            <div class="carousel-buttons">
+                <button id="3prevBtn"><i class="fa-solid fa-arrow-left" style="color: rgb(255, 255, 255);"></i></button>
+                <button id="3nextBtn"><i class="fa-solid fa-arrow-right" style="color: rgb(255, 255, 255);"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <button id="save-btn" onclick="AddFitToFav(this)">
+        ❤ Save Fit
+    </button>
+    <script src="create.js"></script>
+    <script>
+        function login() {
+            const name = document.getElementById("username").value;
+            localStorage.setItem("user", name);
+            loadUser();
+        }
+        function loadUser() {
+            const user = localStorage.getItem("user");
+            document.getElementById("userinfo").innerText = 
+            user ? "Prihlasen: " + user : "Nikdo neni prihlasen";
+        }
+    </script>
+    <script>
+        function openModal(type) {
+            document.getElementById("modal").style.display = "block";
+
+            if (type === "login") {
+                document.getElementById("loginForm").style.display = "block";
+                document.getElementById("registerForm").style.display = "none";
+            } else {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("registerForm").style.display = "block";
+            }
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+        function login() {
+            alert("Signed in");
+        }
+        function register() {
+            alert("Register");
+        }
+    </script>
+    </script>
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button onclick="login()" class="main-btn">Sign in</button>
+            </div>
+
+            <div id="registerForm">
+                <h2>Register</h2>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button onclick="register()" class="main-btn">Create Account</button>
+            </div>
+
+        </div>
+    </div>
+    <script type="module" src="savebtn.js"></script>
+</body>
+</html>

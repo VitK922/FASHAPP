@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.svg">
+    <title>Favourites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+
+            const toggleBtn = document.querySelector('.toggle_btn');
+            const dropDownMenu = document.querySelector('.dropdown_menu');
+            const toggleBtnIcon = document.querySelector('.toggle_btn i');
+
+            toggleBtn.addEventListener("click", () => {
+                dropDownMenu.classList.toggle("open");
+
+                const isOpen = dropDownMenu.classList.contains("open");
+
+                toggleBtnIcon.className = isOpen
+                    ? "fa-solid fa-xmark"
+                    : "fa-solid fa-bars";
+            });
+        });
+    </script>
+    <div class="bg-effect"></div>
+    <h1 class="favnadpis">Favourites</h1>
+    <div id="fav-gallery" class="gallery"></div>
+    <script>
+
+let favourites =
+JSON.parse(
+localStorage.getItem("favourites")
+) || [];
+
+const container =
+document.getElementById("fav-gallery");
+
+function renderFavourites(){
+
+container.innerHTML = "";
+
+favourites.forEach(image => {
+
+container.innerHTML += `
+
+<div class="gallery-item">
+
+<img src="${image}" alt="">
+
+<button
+class="fav-btn"
+onclick="removeFav('${image}')">
+
+<i class="fa-solid fa-xmark" style="color: white"></i>  Remove
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function removeFav(image){
+
+favourites =
+favourites.filter(
+item => item !== image
+);
+
+localStorage.setItem(
+"favourites",
+JSON.stringify(favourites)
+);
+
+renderFavourites();
+
+}
+
+renderFavourites();
+
+</script>
+<script>
+        function openModal(type) {
+            document.getElementById("modal").style.display = "block";
+
+            if (type === "login") {
+                document.getElementById("loginForm").style.display = "block";
+                document.getElementById("registerForm").style.display = "none";
+            } else {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("registerForm").style.display = "block";
+            }
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+        function login() {
+            alert("Signed in");
+        }
+        function register() {
+            alert("Register");
+        }
+    </script>
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="text" id="loginEmail" placeholder="Email">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button onclick="login()" class="main-btn">Sign in</button>
+            </div>
+
+            <div id="registerForm">
+                <h2>Register</h2>
+                <input type="text" placeholder="Name">
+                <input type="email" id="registerEmail" placeholder="Email">
+                <input type="password" id="registerPassword" placeholder="Password">
+                <button onclick="register()" class="main-btn">Create Account</button>
+            </div>
+
+        </div>
+</body>
+</html>
