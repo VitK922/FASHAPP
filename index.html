@@ -13,88 +13,95 @@
 <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="navbar"></div>
-    <script>
+      <div id="navbar"></div>
+      <script>
         fetch("navbar.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("navbar").innerHTML = data;
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("navbar").innerHTML = data;
 
-    const toggleBtn = document.querySelector('.toggle_btn');
-    const dropDownMenu = document.querySelector('.dropdown_menu');
-    const toggleBtnIcon = document.querySelector('.toggle_btn i');
+            const toggleBtn = document.querySelector('.toggle_btn');
+            const dropDownMenu = document.querySelector('.dropdown_menu');
+            const toggleBtnIcon = document.querySelector('.toggle_btn i');
 
-    toggleBtn.addEventListener("click", () => {
-        dropDownMenu.classList.toggle("open");
+            toggleBtn.addEventListener("click", () => {
+              dropDownMenu.classList.toggle("open");
 
-        const isOpen = dropDownMenu.classList.contains("open");
+              const isOpen = dropDownMenu.classList.contains("open");
 
-        toggleBtnIcon.className = isOpen
-            ? "fa-solid fa-xmark"
-            : "fa-solid fa-bars";
-    });
-});
-    </script>
-    <div>
+              toggleBtnIcon.className = isOpen
+                ? "fa-solid fa-xmark"
+                : "fa-solid fa-bars";
+            });
+          });
+      </script>
+
+      <div>
         <img src="images/logo.png" alt="" class="picture">
-    </div>
-    
-    <script>
+      </div>
+
+      <script>
         function openModal(type) {
-            document.getElementById("modal").style.display = "block";
+          document.getElementById("modal").style.display = "block";
 
-            if (type === "login") {
-                document.getElementById("loginForm").style.display = "block";
-                document.getElementById("registerForm").style.display = "none";
-            } else {
-                document.getElementById("loginForm").style.display = "none";
-                document.getElementById("registerForm").style.display = "block";
-            }
+          if (type === "login") {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+          } else {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+          }
         }
+
         function closeModal() {
-            document.getElementById("modal").style.display = "none";
+          document.getElementById("modal").style.display = "none";
         }
-    </script>
-    <script type="module">
+      </script>
+      <script type="module">
         function login() {
-            const email = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
+          const email = document.getElementById("loginEmail").value;
+          const password = document.getElementById("loginPassword").value;
 
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    alert("Signed in");
-                    console.log(userCredential.user);
-                    closeModal();
-                })
-                .catch((Error) => {
-                    alert(Error.message);
-                });
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              alert("Signed in");
+              console.log(userCredential.user);
+              closeModal();
+            })
+            .catch((Error) => {
+              alert(Error.message);
+            });
         }
-    </script>
-    <script>
+      </script>
+      <script>
         function openModal(type) {
-            document.getElementById("modal").style.display = "block";
+          document.getElementById("modal").style.display = "block";
 
-            if (type === "login") {
-                document.getElementById("loginForm").style.display = "block";
-                document.getElementById("registerForm").style.display = "none";
-            } else {
-                document.getElementById("loginForm").style.display = "none";
-                document.getElementById("registerForm").style.display = "block";
-            }
+          if (type === "login") {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+          } else {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+          }
         }
+
         function closeModal() {
-            document.getElementById("modal").style.display = "none";
+          document.getElementById("modal").style.display = "none";
         }
+
         function login() {
-            alert("Signed in");
+          alert("Signed in");
         }
+
         function register() {
-            alert("Register");
+          alert("Register");
         }
-    </script>
-    <div class="autor">Created by VitK</div>
-    <div id="modal" class="modal">
+      </script>
+
+      <div class="autor">Created by VitK</div>
+
+  <div id="modal" class="modal">
         <div class="modal-box">
             <span class="close" onclick="closeModal()">&times;</span>
 
